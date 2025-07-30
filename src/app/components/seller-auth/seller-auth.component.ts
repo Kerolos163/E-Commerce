@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { SellerService } from '../../services/seller.service';
 import { SellerModel } from '../../model/seller_model';
 import { CommonModule } from '@angular/common';
+import { SellerLoginModel } from '../../model/seller_login_model';
 
 @Component({
   selector: 'app-seller-auth',
@@ -12,6 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class SellerAuthComponent {
   showLogin = true;
+  authError = '';
   constructor(private sellerService: SellerService) {}
 
   ngOnInit() {
@@ -20,8 +22,14 @@ export class SellerAuthComponent {
   signUp(signupForm: SellerModel): void {
     this.sellerService.userSignUp(signupForm);
   }
-  Login(loginForm: any): void {
-    console.warn(loginForm);
+  Login(loginForm: SellerLoginModel): void {
+    this.sellerService.userLogin(loginForm);
+    this.sellerService.isLoginError.subscribe((isError) => {
+      if (isError) {
+        this.authError = 'Email or Password is wrong';
+        // alert('Invalid user details');
+      }
+    });
   }
 
   openLogin() {

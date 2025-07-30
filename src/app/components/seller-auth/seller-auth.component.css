@@ -8,3 +8,8 @@ a {
   cursor: pointer;
   color: blueviolet;
 }
+
+.auth-error {
+  color: red;
+
+}

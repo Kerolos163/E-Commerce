@@ -1,14 +1,17 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { SellerModel } from '../model/seller_model';
 import { Router } from '@angular/router';
+import { SellerLoginModel } from '../model/seller_login_model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SellerService {
   isSellerLoggedIn = new BehaviorSubject<Boolean>(false);
+  isLoginError = new EventEmitter<boolean>(false);
+
   constructor(private http: HttpClient, private router: Router) {}
 
   userSignUp(data: SellerModel) {
@@ -29,5 +32,22 @@ export class SellerService {
       this.isSellerLoggedIn.next(true);
       this.router.navigate(['seller-home']);
     }
+  }
+
+  userLogin(data: SellerLoginModel) {
+    const url = `http://localhost:3000/seller?email=${data.email}&password=${data.password}`;
+
+    this.http.get(url, { observe: 'response' }).subscribe((res: any) => {
+      console.warn(res.body);
+      if (res && res.body && res.body.length) {
+        this.isLoginError.emit(false);
+        this.isSellerLoggedIn.next(true);
+        localStorage.setItem('seller', JSON.stringify(res.body));
+        this.router.navigate(['seller-home']);
+      } else {
+        console.warn('User not found');
+        this.isLoginError.emit(true);
+      }
+    });
   }
 }

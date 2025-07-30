@@ -24,6 +24,7 @@
       <input type="password" class="form-input"
         placeholder="please enter your password"
         name="password" ngModel>
+      <p class="auth-error">{{authError}}</p>
       <button class="form-button">Log In</button>
       <a (click)="openSignUp()">Don't have an account</a>
     </form>
