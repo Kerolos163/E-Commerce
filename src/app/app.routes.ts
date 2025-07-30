@@ -6,4 +6,5 @@ export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, title: 'Home' },
   { path: 'seller-auth', component: SellerAuthComponent, title: 'Seller' },
+  { path: 'seller-home', component: HomeComponent, title: 'Seller Home' },
 ];
