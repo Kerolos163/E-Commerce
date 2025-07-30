@@ -9,7 +9,7 @@ export const authGuard: CanActivateFn = (route, state) => {
   return authService.isSellerLoggedIn.pipe(
     take(1),
     map(function (isSellerLoggedIn) {
-      console.error('isSellerLoggedIn', isSellerLoggedIn);
+      console.warn('isSellerLoggedIn', isSellerLoggedIn);
       if (localStorage.getItem('seller')) {
         return true;
       }
