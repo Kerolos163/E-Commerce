@@ -6,5 +6,39 @@
       "email": "kokoessa951@gmail.com",
       "password": "123456"
     }
+  ],
+  "products": [
+    {
+      "id": "0fbe",
+      "name": "Samsung s22 ultra",
+      "category": "mobile",
+      "price": "12000",
+      "imageUrl": "https://cdn.shortpixel.ai/spai/q_glossy+ret_img+to_webp/mobizil.com/wp-content/uploads/2022/02/Samsung-Galaxy-S22-Ultra-5G.jpg",
+      "description": "best mobile in the world"
+    },
+    {
+      "id": "b4d0",
+      "name": "Iphone",
+      "price": "500",
+      "category": "mobile",
+      "description": "nlsnd;sdm;s",
+      "imageUrl": "https://cdn.shortpixel.ai/spai/q_glossy+ret_img+to_webp/mobizil.com/wp-content/uploads/2022/02/Samsung-Galaxy-S22-Ultra-5G.jpg"
+    },
+    {
+      "id": "2607",
+      "name": "sam",
+      "price": "500",
+      "category": "mmm",
+      "description": "kd;skd;lsmd;s",
+      "imageUrl": "https://cdn.shortpixel.ai/spai/q_glossy+ret_img+to_webp/mobizil.com/wp-content/uploads/2022/02/Samsung-Galaxy-S22-Ultra-5G.jpg"
+    },
+    {
+      "id": "a591",
+      "name": "kerolos",
+      "price": "9500",
+      "category": "mdsmd;s",
+      "description": "m;ldmf;ds",
+      "imageUrl": "https://cdn.shortpixel.ai/spai/q_glossy+ret_img+to_webp/mobizil.com/wp-content/uploads/2022/02/Samsung-Galaxy-S22-Ultra-5G.jpg"
+    }
   ]
 }
