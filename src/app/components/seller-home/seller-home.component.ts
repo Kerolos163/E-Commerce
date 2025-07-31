@@ -2,16 +2,19 @@ import { Component } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { ProductModel } from '../../model/product_model';
 import { CommonModule } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-seller-home',
-  imports: [CommonModule],
+  imports: [CommonModule, FontAwesomeModule],
   templateUrl: './seller-home.component.html',
   styleUrl: './seller-home.component.css',
 })
 export class SellerHomeComponent {
   productList: ProductModel[] = [];
   deleteMessage: String | undefined;
+  faTrash = faTrash;
   constructor(private productService: ProductService) {}
   ngOnInit() {
     this.getProductList();
