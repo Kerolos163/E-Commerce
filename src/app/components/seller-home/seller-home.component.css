@@ -1,0 +1,35 @@
+.product-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: blueviolet;
+  margin: 20px 0;
+}
+
+table, th, td {
+  border: 2px solid blueviolet;
+  border-collapse: collapse;
+}
+
+table {
+  width: 90%;
+}
+
+th, td {
+  text-align: center;
+  padding: 10px;
+  transition: all 0.4s ease-in-out;
+}
+
+th:hover, td:hover {
+  background-color: blueviolet;
+  color: white;
+  cursor: pointer;
+}
+
+td>img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+}
