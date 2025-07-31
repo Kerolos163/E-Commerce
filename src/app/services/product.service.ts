@@ -23,4 +23,9 @@ export class ProductService {
     const url = `http://localhost:3000/products/${id}`;
     return this.httpclient.delete(url);
   }
+
+  getProductById(id: string) {
+    const url = `http://localhost:3000/products/${id}`;
+    return this.httpclient.get<ProductModel>(url);
+  }
 }

@@ -5,19 +5,20 @@
     (ngSubmit)="updateProduct(updateProductForm.value)">
 
     <input type="text" class="form-input" placeholder="enter product name"
-      name="name" ngModel>
+      name="name" ngModel="{{productData?.name}}">
 
     <input type="text" class="form-input" placeholder="enter product price"
-      name="price" ngModel>
+      name="price" ngModel="{{productData?.price}}">
 
     <input type="text" class="form-input" placeholder="enter product category"
-      name="category" ngModel>
+      name="category" ngModel="{{productData?.category}}">
 
     <textarea name="description" class="form-input"
-      placeholder="enter product description" ngModel></textarea>
+      placeholder="enter product description"
+      ngModel="{{productData?.description}}"></textarea>
 
     <input type="text" class="form-input" placeholder="enter product Image URL"
-      name="imageUrl" ngModel>
+      name="imageUrl" ngModel="{{productData?.imageUrl}}">
 
     <button class="form-button">Update Product</button>
   </form>
