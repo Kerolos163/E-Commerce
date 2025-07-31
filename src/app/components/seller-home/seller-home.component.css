@@ -17,7 +17,7 @@ table {
 
 th, td {
   text-align: center;
-  padding: 10px;
+  padding: 5px;
   transition: all 0.4s ease-in-out;
 }
 
@@ -35,19 +35,21 @@ td>img {
 }
 
 td>button {
-  width: 80%;
-  aspect-ratio: 2.4;
+  width: 85%;
+  aspect-ratio: 4.5;
   border-radius: 5px;
   border: none;
   background-color: blueviolet;
   color: white;
   cursor: pointer;
   transition: all 0.4s ease-in-out;
+  margin: 3px;
 }
 
 td:hover>button {
   background-color: white;
   color: blueviolet;
+
 }
 
 .delete-product-message {

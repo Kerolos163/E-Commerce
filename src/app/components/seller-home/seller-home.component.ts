@@ -3,7 +3,8 @@ import { ProductService } from '../../services/product.service';
 import { ProductModel } from '../../model/product_model';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-seller-home',
@@ -15,7 +16,8 @@ export class SellerHomeComponent {
   productList: ProductModel[] = [];
   deleteMessage: String | undefined;
   faTrash = faTrash;
-  constructor(private productService: ProductService) {}
+  faPen = faPen;
+  constructor(private productService: ProductService,private router: Router) {}
   ngOnInit() {
     this.getProductList();
   }
@@ -39,5 +41,10 @@ export class SellerHomeComponent {
         this.getProductList();
       }
     });
+  }
+
+  editItem(id: string) {
+    console.warn(id);
+    this.router.navigate(['seller-update-product', id]);
   }
 }

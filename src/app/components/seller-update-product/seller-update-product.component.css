@@ -1,0 +1,11 @@
+.update-product {
+  text-align: center;
+  color: blueviolet;
+  margin: 20px 0;
+}
+.update-product-message{
+  color: green;
+  font-weight: bold;
+  font-size: 24px;
+  margin: 10px 0;
+}
