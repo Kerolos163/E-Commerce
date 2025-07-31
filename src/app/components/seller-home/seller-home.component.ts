@@ -11,12 +11,29 @@ import { CommonModule } from '@angular/common';
 })
 export class SellerHomeComponent {
   productList: ProductModel[] = [];
+  deleteMessage: String | undefined;
   constructor(private productService: ProductService) {}
   ngOnInit() {
+    this.getProductList();
+  }
+
+  getProductList() {
     this.productService.getProductList().subscribe((res) => {
       if (res) {
         this.productList = res;
         console.warn(this.productList);
+      }
+    });
+  }
+  deleteItem(id: string) {
+    this.productService.deleteItem(id).subscribe((res) => {
+      console.warn(res);
+      if (res) {
+        this.deleteMessage = 'Product deleted successfully';
+        setTimeout(() => {
+          this.deleteMessage = undefined;
+        }, 3000);
+        this.getProductList();
       }
     });
   }

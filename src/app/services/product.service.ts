@@ -14,8 +14,13 @@ export class ProductService {
     return this.httpclient.post(url, item);
   }
 
-  getProductList() :Observable<ProductModel[]>{
+  getProductList(): Observable<ProductModel[]> {
     const url = 'http://localhost:3000/products';
     return this.httpclient.get<ProductModel[]>(url);
+  }
+
+  deleteItem(id: string) {
+    const url = `http://localhost:3000/products/${id}`;
+    return this.httpclient.delete(url);
   }
 }

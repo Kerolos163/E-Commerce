@@ -33,3 +33,26 @@ td>img {
   border-radius: 10px;
   object-fit: cover;
 }
+
+td>button {
+  width: 80%;
+  aspect-ratio: 2;
+  border-radius: 5px;
+  border: none;
+  background-color: blueviolet;
+  color: white;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+
+td:hover>button {
+  background-color: white;
+  color: blueviolet;
+}
+
+.delete-product-message {
+  color: red;
+  font-weight: bold;
+  font-size: 24px;
+  margin: 10px 0;
+}
