@@ -3,6 +3,7 @@ import { ProductService } from '../../services/product.service';
 import { ProductModel } from '../../model/product_model';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { trigger, transition, style, animate } from '@angular/animations';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -10,6 +11,14 @@ import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
   imports: [CommonModule, FontAwesomeModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
+  animations: [
+    trigger('fade', [
+      transition('* => *', [
+        style({ opacity: 0 }),
+        animate('400ms ease-in-out', style({ opacity: 1 })),
+      ]),
+    ]),
+  ],
 })
 export class HomeComponent {
   faAngleLeft = faAngleLeft;

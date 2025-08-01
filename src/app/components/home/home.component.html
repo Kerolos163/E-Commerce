@@ -2,7 +2,8 @@
   <fa-icon class="slider-icon" (click)="prevSlide()"
     [icon]="faAngleLeft"></fa-icon>
 
-  <img class="slider-image" src="{{popularProducts[currentItem].imageUrl}}" alt>
+  <img class="slider-image" [@fade]="currentItem"
+    [src]="popularProducts[currentItem].imageUrl" alt>
 
   <fa-icon class="slider-icon" (click)="nextSlide()"
     [icon]="faAngleRight"></fa-icon>
@@ -26,9 +27,9 @@
       <p>Price: ${{product.price}}</p>
     </div>
     <hr>
-    <div class="product-actions">  
-      <a href="">Product Details</a>
-      <a href="">Add to Cart</a>
+    <div class="product-actions">
+      <a href>Product Details</a>
+      <a href>Add to Cart</a>
     </div>
   </div>
   }
