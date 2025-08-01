@@ -1,1 +1,15 @@
-<p>home works!</p>
+<div class="Slider">
+  <fa-icon class="slider-icon" (click)="prevSlide()"
+    [icon]="faAngleLeft"></fa-icon>
+
+  <img class="slider-image" src="{{popularProducts[currentItem].imageUrl}}" alt>
+
+  <fa-icon class="slider-icon" (click)="nextSlide()"
+    [icon]="faAngleRight"></fa-icon>
+
+  <div class="slider-dots">
+    <div [class]="currentItem === i ? 'selected-slider-dot' : 'slider-dot'"
+      *ngFor="let product of popularProducts; let i = index"
+      [class.active]="currentItem === i" (click)="currentItem = i"></div>
+  </div>
+</div>

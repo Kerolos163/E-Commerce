@@ -34,4 +34,9 @@ export class ProductService {
     console.warn(url);
     return this.httpclient.put(url, product);
   }
+
+  popularProducts() {
+    const url = 'http://localhost:3000/products?_limit=3';
+    return this.httpclient.get<ProductModel[]>(url);
+  }
 }

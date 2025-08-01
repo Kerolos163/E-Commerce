@@ -1,0 +1,74 @@
+.Slider {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.slider-image {
+  width: 80%;
+  height: 600px;
+  border-radius: 50%;
+  object-fit: contain;
+}
+
+.slider-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 38px;
+  color: blueviolet;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.slider-icon:hover {
+  background-color: blueviolet;
+  color: white;
+  border-radius: 50%;
+}
+
+.slider-dots {
+  position: absolute;
+  bottom: 20px;
+}
+
+.slider-dot {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  border-radius: 50%;
+  background-color: rgba(137, 43, 226, 0.375);
+  margin: 0 5px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.slider-dot:hover {
+  background-color: rgba(137, 43, 226, 0.732);
+}
+
+.selected-slider-dot {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  border-radius: 50%;
+  background-color: blueviolet;
+  margin: 0 5px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  transition: all 0.3s ease-in-out;
+}
