@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ProductModel } from '../../model/product_model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 
 @Component({
@@ -12,8 +12,9 @@ import { ProductService } from '../../services/product.service';
 })
 export class SellerUpdateProductComponent {
   productData: ProductModel | undefined;
-  updateProductMessage = '';
+  updateProductMessage: String | undefined;
   constructor(
+    private router: Router,
     private route: ActivatedRoute,
     private productService: ProductService
   ) {}
@@ -32,6 +33,16 @@ export class SellerUpdateProductComponent {
   }
 
   updateProduct(productForm: ProductModel) {
-    console.warn(productForm);
+    productForm.id = this.productData?.id ?? '';
+    this.productService.updateProduct(productForm).subscribe((res) => {
+      console.warn(res);
+      if (res) {
+        this.updateProductMessage = 'Product Updated Successfully';
+        setTimeout(() => {
+          this.updateProductMessage = undefined;
+          this.router.navigate(['seller-home']);
+        }, 3000);
+      }
+    });
   }
 }

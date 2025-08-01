@@ -28,4 +28,10 @@ export class ProductService {
     const url = `http://localhost:3000/products/${id}`;
     return this.httpclient.get<ProductModel>(url);
   }
+
+  updateProduct(product: ProductModel) {
+    const url = `http://localhost:3000/products/${product.id}`;
+    console.warn(url);
+    return this.httpclient.put(url, product);
+  }
 }
