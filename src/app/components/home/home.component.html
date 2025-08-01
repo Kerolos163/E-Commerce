@@ -13,3 +13,23 @@
       [class.active]="currentItem === i" (click)="currentItem = i"></div>
   </div>
 </div>
+
+<h2>Trending Products</h2>
+<div class="product-list-container">
+  @for (product of productList; track $index) {
+  <div class="product-item">
+    <img src="{{product.imageUrl}}" alt>
+    <hr>
+    <div class="product-info">
+      <h2>{{product.category | titlecase}}</h2>
+      <h3>{{product.name}}</h3>
+      <p>Price: ${{product.price}}</p>
+    </div>
+    <hr>
+    <div class="product-actions">  
+      <a href="">Product Details</a>
+      <a href="">Add to Cart</a>
+    </div>
+  </div>
+  }
+</div>

@@ -17,10 +17,15 @@ export class HomeComponent {
 
   currentItem = 0;
   popularProducts: ProductModel[] = [];
+  productList: ProductModel[] = [];
   constructor(private productService: ProductService) {}
 
   ngOnInit() {
     this.getPopularProducts();
+    this.getAllProducts();
+    setInterval(() => {
+      this.nextSlide();
+    }, 5000);
   }
   prevSlide() {
     if (this.currentItem === 0) {
@@ -42,6 +47,15 @@ export class HomeComponent {
       if (res) {
         this.popularProducts = res;
         console.warn(this.popularProducts);
+      }
+    });
+  }
+
+  getAllProducts() {
+    this.productService.getProductList().subscribe((res) => {
+      if (res) {
+        this.productList = res;
+        console.warn(this.productList);
       }
     });
   }
