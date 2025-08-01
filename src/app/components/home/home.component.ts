@@ -25,7 +25,7 @@ export class HomeComponent {
     this.getAllProducts();
     setInterval(() => {
       this.nextSlide();
-    }, 5000);
+    }, 4000);
   }
   prevSlide() {
     if (this.currentItem === 0) {
