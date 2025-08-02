@@ -10,7 +10,9 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class HeaderComponent {
   menuType = 'default';
-  sellerName = '...';
+  sellerName = '';
+  userName = '';
+
   constructor(private router: Router) {}
 
   ngOnInit() {
@@ -21,6 +23,12 @@ export class HeaderComponent {
           let sellerData = JSON.parse(sellerStore!)[0];
           this.sellerName = sellerData.name;
           this.menuType = 'seller';
+        } else if (localStorage.getItem('user')) {
+          let userStorage = localStorage.getItem('user');
+          let userData = JSON.parse(userStorage!);
+          this.userName = userData.name;
+          console.warn(this.userName);
+          this.menuType = 'user';
         } else {
           this.menuType = 'default';
         }
@@ -28,8 +36,13 @@ export class HeaderComponent {
     });
   }
 
-  logout() {
+  sellerlogout() {
     localStorage.removeItem('seller');
     this.router.navigate(['/']);
+  }
+
+  userlogout() {
+    localStorage.removeItem('user');
+    this.router.navigate(['/user-auth']);
   }
 }

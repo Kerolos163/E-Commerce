@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 export class UserService {
   constructor(private httpClient: HttpClient, private router: Router) {}
 
+
   userSignUp(sellerUserModel: SellerUserModel) {
     const usr = 'http://localhost:3000/user';
     return this.httpClient
@@ -20,5 +21,11 @@ export class UserService {
           this.router.navigate(['/']);
         }
       });
+  }
+
+  userAuthReload() {
+    if (localStorage.getItem('user')) {
+      this.router.navigate(['/']);
+    }
   }
 }

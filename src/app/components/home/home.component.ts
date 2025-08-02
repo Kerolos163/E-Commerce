@@ -56,7 +56,6 @@ export class HomeComponent {
     this.productService.popularProducts().subscribe((res) => {
       if (res) {
         this.popularProducts = res;
-        console.warn(this.popularProducts);
       }
     });
   }

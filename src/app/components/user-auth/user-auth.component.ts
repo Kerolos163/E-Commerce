@@ -18,6 +18,10 @@ export class UserAuthComponent {
 
   constructor(private userService: UserService) {}
 
+  ngOnInit() {
+    this.userService.userAuthReload();
+  }
+
   openLogin() {
     this.showLogin = true;
   }
