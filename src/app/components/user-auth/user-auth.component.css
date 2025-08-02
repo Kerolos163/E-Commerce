@@ -12,3 +12,15 @@ a {
 .auth-error {
   color: red;
 }
+
+.invalid-input {
+  width: 30%;
+  padding: 0;
+  margin: 4px;
+  color: red;
+  text-align: left;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}

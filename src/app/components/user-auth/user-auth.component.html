@@ -19,13 +19,36 @@
     <h2>user Log In</h2>
     <form #loginForm="ngForm" (ngSubmit)="Login(loginForm.value)"
       class="common-form">
-      <input type="text" class="form-input"
-        placeholder="please enter user email" name="email" ngModel>
-      <input type="password" class="form-input"
+
+      <input type="text"
+        class="form-input"
+        placeholder="please enter user email"
+        name="email"
+        ngModel
+        email
+        #email="ngModel"
+        required>
+
+      <p class="invalid-input" *ngIf="!email.valid && email.touched">Please
+        enter valid
+        email</p>
+
+      <input type="password"
+        class="form-input"
         placeholder="please enter user password"
-        name="password" ngModel>
+        name="password"
+        ngModel
+        minlength="6"
+        #password="ngModel"
+        required>
+
+      <p class="invalid-input"
+        *ngIf="!password.valid && password.touched">Please
+        enter valid
+        password</p>
+
       <p class="auth-error">{{authError}}</p>
-      <button class="form-button">Log In</button>
+      <button [disabled]="loginForm.invalid" class="form-button">Log In</button>
       <a (click)="openSignUp()">Don't have an account</a>
     </form>
   </div>
