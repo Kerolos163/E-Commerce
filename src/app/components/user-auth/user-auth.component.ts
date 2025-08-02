@@ -35,6 +35,11 @@ export class UserAuthComponent {
   }
 
   Login(loginForm: SellerUserLoginModel) {
-    console.warn(loginForm);
+    this.userService.userLogin(loginForm);
+    this.userService.isLoginError.subscribe((isError) => {
+      if (isError) {
+        this.authError = 'Email or Password is wrong';
+      }
+    });
   }
 }
