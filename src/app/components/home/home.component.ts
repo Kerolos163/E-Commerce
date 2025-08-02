@@ -5,10 +5,11 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, FontAwesomeModule],
+  imports: [CommonModule, FontAwesomeModule, RouterLink],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
   animations: [

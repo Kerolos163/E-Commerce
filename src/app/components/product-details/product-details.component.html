@@ -1,0 +1,19 @@
+<div class="product-details-container">
+  <img src="{{product?.imageUrl}}" alt>
+  <hr>
+  <div class="product-info">
+    <h1>{{product?.name}}</h1>
+    <h2>{{product?.category | titlecase}}</h2>
+    <h2>{{product?.description}}</h2>
+    <p>Price: ${{product?.price}}</p>
+    <div class="product-actions">
+      <button class="form-button">Add to Cart</button>
+      <button class="form-button">Buy Now</button>
+    </div>
+    <div class="quantity-group">
+      <button (click)="decrement()">-</button>
+      <span>{{counter}}</span>
+      <button (click)="increment()">+</button>
+    </div>
+  </div>
+</div>
