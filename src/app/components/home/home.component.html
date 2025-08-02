@@ -2,8 +2,9 @@
   <fa-icon class="slider-icon" (click)="prevSlide()"
     [icon]="faAngleLeft"></fa-icon>
 
-  <img class="slider-image" [@fade]="currentItem"
-    [src]="popularProducts[currentItem].imageUrl" alt>
+  <a routerLink="/product-details/{{popularProducts[currentItem].id}}"><img
+      class="slider-image" [@fade]="currentItem"
+      [src]="popularProducts[currentItem].imageUrl" alt></a>
 
   <fa-icon class="slider-icon" (click)="nextSlide()"
     [icon]="faAngleRight"></fa-icon>
