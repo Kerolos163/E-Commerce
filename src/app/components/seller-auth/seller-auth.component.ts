@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SellerService } from '../../services/seller.service';
-import { SellerModel } from '../../model/seller_model';
+import { SellerUserModel } from '../../model/seller_model';
 import { CommonModule } from '@angular/common';
-import { SellerLoginModel } from '../../model/seller_login_model';
+import { SellerUserLoginModel } from '../../model/seller_login_model';
 
 @Component({
   selector: 'app-seller-auth',
@@ -19,10 +19,10 @@ export class SellerAuthComponent {
   ngOnInit() {
     this.sellerService.reloadSeller();
   }
-  signUp(signupForm: SellerModel): void {
+  signUp(signupForm: SellerUserModel): void {
     this.sellerService.userSignUp(signupForm);
   }
-  Login(loginForm: SellerLoginModel): void {
+  Login(loginForm: SellerUserLoginModel): void {
     this.sellerService.userLogin(loginForm);
     this.sellerService.isLoginError.subscribe((isError) => {
       if (isError) {

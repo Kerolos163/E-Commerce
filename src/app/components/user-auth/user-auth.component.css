@@ -1,0 +1,14 @@
+.sign-up, .log-in {
+  text-align: center;
+  color: blueviolet;
+  margin: 20px 0;
+}
+
+a {
+  cursor: pointer;
+  color: blueviolet;
+}
+
+.auth-error {
+  color: red;
+}

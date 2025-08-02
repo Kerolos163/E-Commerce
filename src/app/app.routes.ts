@@ -6,6 +6,7 @@ import { SellerHomeComponent } from './components/seller-home/seller-home.compon
 import { SellerAddProductComponent } from './components/seller-add-product/seller-add-product.component';
 import { SellerUpdateProductComponent } from './components/seller-update-product/seller-update-product.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { UserAuthComponent } from './components/user-auth/user-auth.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -33,5 +34,10 @@ export const routes: Routes = [
     path: 'product-details/:id',
     component: ProductDetailsComponent,
     title: 'Product Details',
+  },
+  {
+    path: 'user-auth',
+    component: UserAuthComponent,
+    title: 'User Auth',
   },
 ];

@@ -56,5 +56,31 @@
       "imageUrl": "https://www.tccq.com/image/cache/catalog/1109369/Samsung-Galaxy-A16-8GB-256GB-Black-in-Qatar-1200x1200.png",
       "id": "689e"
     }
+  ],
+  "user": [
+    {
+      "id": "42bb",
+      "name": "wesso",
+      "email": "kokoessa91@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "ae00",
+      "name": "7amada",
+      "email": "msldmsl;m",
+      "password": ""
+    },
+    {
+      "id": "fc4b",
+      "name": "7amada",
+      "email": "msldmsl;m",
+      "password": "5555"
+    },
+    {
+      "id": "51e5",
+      "name": "kerolos",
+      "email": "kokoessa951@gmail.com",
+      "password": "88888"
+    }
   ]
 }

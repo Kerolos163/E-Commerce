@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { SellerModel } from '../model/seller_model';
+import { SellerUserModel } from '../model/seller_model';
 import { Router } from '@angular/router';
-import { SellerLoginModel } from '../model/seller_login_model';
+import { SellerUserLoginModel } from '../model/seller_login_model';
 
 @Injectable({
   providedIn: 'root',
@@ -14,11 +14,11 @@ export class SellerService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  userSignUp(data: SellerModel) {
+  userSignUp(data: SellerUserModel) {
     console.log(data);
     const url = 'http://localhost:3000/seller';
     this.http
-      .post<SellerModel>(url, data, { observe: 'response' })
+      .post<SellerUserModel>(url, data, { observe: 'response' })
       .subscribe((res) => {
         console.warn(res);
         this.isSellerLoggedIn.next(true);
@@ -34,7 +34,7 @@ export class SellerService {
     }
   }
 
-  userLogin(data: SellerLoginModel) {
+  userLogin(data: SellerUserLoginModel) {
     const url = `http://localhost:3000/seller?email=${data.email}&password=${data.password}`;
 
     this.http.get(url, { observe: 'response' }).subscribe((res: any) => {
