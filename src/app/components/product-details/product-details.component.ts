@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 export class ProductDetailsComponent {
   product: ProductModel | undefined;
   counter: number = 1;
+  removedCart = false;
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService
@@ -21,6 +22,20 @@ export class ProductDetailsComponent {
   ngOnInit() {
     this.route.params.subscribe((params: any) => {
       this.getProductById(params.id);
+
+      let cartData = localStorage.getItem('localCart');
+      if (cartData) {
+        let items = JSON.parse(cartData);
+        items = items.filter((item: ProductModel) => {
+          return item.id === params.id;
+        });
+        console.warn(items);
+        if (items.length) {
+          this.removedCart = true;
+        } else {
+          this.removedCart = false;
+        }
+      }
     });
   }
 
@@ -46,8 +61,13 @@ export class ProductDetailsComponent {
       this.product.quantity = this.counter;
       if (!localStorage.getItem('user')) {
         this.productService.localAddToCart(this.product);
+        this.removedCart = true;
       }
       console.warn(this.product);
     }
+  }
+  removeFromCart(id: string) {
+    this.productService.removeItemFromCart(id);
+    this.removedCart = false;
   }
 }

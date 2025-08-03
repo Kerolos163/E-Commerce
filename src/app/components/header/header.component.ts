@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-header',
@@ -12,8 +13,9 @@ export class HeaderComponent {
   menuType = 'default';
   sellerName = '';
   userName = '';
+  cartItems = 0;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,private productService: ProductService) {}
 
   ngOnInit() {
     this.router.events.subscribe((val: any) => {
@@ -32,6 +34,15 @@ export class HeaderComponent {
           this.menuType = 'default';
         }
       }
+    });
+
+    let cartData = localStorage.getItem('localCart');
+    if (cartData) {
+      this.cartItems = JSON.parse(cartData).length;
+    }
+
+    this.productService.cartData.subscribe((items) => {
+      this.cartItems = items.length;
     });
   }
 
