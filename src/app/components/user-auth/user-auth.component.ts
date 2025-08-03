@@ -57,14 +57,14 @@ export class UserAuthComponent {
     if (data) {
       let cartDataList = JSON.parse(data);
       let currentUser = localStorage.getItem('user');
+      console.warn(currentUser);
       let userId = currentUser && JSON.parse(currentUser).id;
-
       cartDataList.forEach((item: any) => {
-        let cartItem: CartModel = {
-          userId: userId!,
-          product: item,
-        };
         setTimeout(() => {
+          let cartItem: CartModel = {
+            userId: userId,
+            product: item,
+          };
           this.productService.addToCart(cartItem).subscribe((res) => {
             console.warn(res);
           });

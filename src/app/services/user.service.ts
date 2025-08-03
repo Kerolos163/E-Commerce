@@ -34,8 +34,8 @@ export class UserService {
     const url = `http://localhost:3000/user?email=${sellerUserLoginModel.email}&password=${sellerUserLoginModel.password}`;
     this.httpClient.get(url, { observe: 'response' }).subscribe((res: any) => {
       if (res && res.body && res.body.length) {
-        this.isLoginError.emit(false);
         localStorage.setItem('user', JSON.stringify(res.body[0]));
+        this.isLoginError.emit(false);
         this.router.navigate(['/']);
       } else {
         this.isLoginError.emit(true);

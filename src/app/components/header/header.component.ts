@@ -15,7 +15,7 @@ export class HeaderComponent {
   userName = '';
   cartItems = 0;
 
-  constructor(private router: Router,private productService: ProductService) {}
+  constructor(private router: Router, private productService: ProductService) {}
 
   ngOnInit() {
     this.router.events.subscribe((val: any) => {
