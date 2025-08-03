@@ -27,7 +27,6 @@ export class HeaderComponent {
           let userStorage = localStorage.getItem('user');
           let userData = JSON.parse(userStorage!);
           this.userName = userData.name;
-          console.warn(this.userName);
           this.menuType = 'user';
         } else {
           this.menuType = 'default';

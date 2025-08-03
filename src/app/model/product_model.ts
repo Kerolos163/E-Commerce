@@ -5,4 +5,5 @@ export interface ProductModel {
   price: number;
   imageUrl: string;
   description: string;
+  quantity: number | undefined;
 }

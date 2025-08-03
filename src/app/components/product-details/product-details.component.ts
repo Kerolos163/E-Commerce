@@ -40,4 +40,14 @@ export class ProductDetailsComponent {
       console.warn(this.product);
     });
   }
+
+  addToCart() {
+    if (this.product) {
+      this.product.quantity = this.counter;
+      if (!localStorage.getItem('user')) {
+        this.productService.localAddToCart(this.product);
+      }
+      console.warn(this.product);
+    }
+  }
 }

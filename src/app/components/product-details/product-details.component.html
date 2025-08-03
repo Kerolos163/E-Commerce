@@ -7,7 +7,7 @@
     <h2>{{product?.description}}</h2>
     <p>Price: ${{product?.price}}</p>
     <div class="product-actions">
-      <button class="form-button">Add to Cart</button>
+      <button class="form-button" (click)="addToCart()">Add to Cart</button>
       <button class="form-button">Buy Now</button>
     </div>
     <div class="quantity-group">

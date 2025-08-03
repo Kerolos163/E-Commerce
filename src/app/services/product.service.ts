@@ -39,4 +39,16 @@ export class ProductService {
     const url = 'http://localhost:3000/products?_limit=3';
     return this.httpclient.get<ProductModel[]>(url);
   }
+
+  localAddToCart(product: ProductModel) {
+    let cartData = [];
+    let localCart = localStorage.getItem('localCart');
+    if (!localCart) {
+      localStorage.setItem('localCart', JSON.stringify([product]));
+    } else {
+      cartData = JSON.parse(localCart);
+      cartData.push(product);
+      localStorage.setItem('localCart', JSON.stringify(cartData));
+    }
+  }
 }
