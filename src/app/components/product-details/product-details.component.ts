@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { ProductModel } from '../../model/product_model';
 import { CommonModule } from '@angular/common';
+import { CartModel } from '../../model/cart_model';
 
 @Component({
   selector: 'app-product-details',
@@ -62,8 +63,21 @@ export class ProductDetailsComponent {
       if (!localStorage.getItem('user')) {
         this.productService.localAddToCart(this.product);
         this.removedCart = true;
+      } else {
+        let user = localStorage.getItem('user');
+        let userId = user && JSON.parse(user).id;
+        console.warn(userId);
+        let cartData: CartModel = {
+          userId: userId!,
+          product: this.product,
+        };
+        console.warn(cartData);
+        this.productService.addToCart(cartData).subscribe((res) => {
+          if (res) {
+            this.removedCart = true;
+          }
+        });
       }
-      console.warn(this.product);
     }
   }
   removeFromCart(id: string) {
