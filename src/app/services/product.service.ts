@@ -26,6 +26,7 @@ export class ProductService {
     return this.httpclient.delete(url);
   }
 
+
   getProductById(id: string) {
     const url = `http://localhost:3000/products/${id}`;
     return this.httpclient.get<ProductModel>(url);
@@ -69,5 +70,10 @@ export class ProductService {
   addToCart(model: CartModel) {
     const url = 'http://localhost:3000/cart';
     return this.httpclient.post(url, model);
+  }
+
+  getCartList(userId: string) {
+    const url = `http://localhost:3000/cart?userId=${userId}`;
+    return this.httpclient.get<CartModel[]>(url);
   }
 }

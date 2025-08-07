@@ -36,6 +36,19 @@ export class ProductDetailsComponent {
         } else {
           this.removedCart = false;
         }
+      } else {
+        let user = localStorage.getItem('user');
+        let userId = user && JSON.parse(user).id;
+        this.productService.getCartList(userId).subscribe((res) => {
+          let items = res.filter((item: CartModel) => {
+            return item.product.id === params.id;
+          });
+          if (items.length) {
+            this.removedCart = true;
+          } else {
+            this.removedCart = false;
+          }
+        });
       }
     });
   }
